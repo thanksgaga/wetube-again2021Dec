@@ -17,6 +17,21 @@ export const watch = async (req, res) => {
   }
   return res.render("watch", { pageTitle: `Watching: ${video.title}`, video});
 };
+
+export const search = async (req, res) => {
+  const {keyword} = req.query;
+  let videos = [];
+  if(keyword){
+    videos = await Video.find({
+      title:  {
+        $regex: new RegExp(keyword, "i")
+      },
+    });
+  };
+  return res.render("search", {pageTitle:`Searching by title : ${keyword}`, videos});
+};
+
+
 export const getEdit = async (req, res) => {
   const { id } = req.params;
   const video = await Video.findById(id);
