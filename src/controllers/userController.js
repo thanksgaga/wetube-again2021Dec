@@ -58,6 +58,10 @@ export const postLogin = async (req, res) => {
 			errorMessage: "Wrong password.",
 		});
 	}
+	//adding information to the session.
+	//Every browser will have different info
+	req.session.loggedIn = true;
+	req.session.user = user;
 	console.log("LOG USER IN! Coming soon");
 
 	//check if account exists
