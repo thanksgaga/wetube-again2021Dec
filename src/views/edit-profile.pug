@@ -1,0 +1,16 @@
+extends base
+
+block content 
+
+    form(method="POST")
+        input(placeholder="Name", name="name", type="text", value=loggedInUser.name)
+        input(placeholder="Email", name="email", type="email", required, value=loggedInUser.email)
+        input(placeholder="Username", name="username", type="text", required, value=loggedInUser.username)
+        input(placeholder="Location", name="location", type="text", value=loggedInUser.location)
+        input(type="submit", value="Update profile")
+
+    if(!loggedInUser.socialOnly)
+        hr
+        a(href="change-password") Change Password &rarr;
+    else 
+        h4 You don't need to change password as you are logged in with Github
