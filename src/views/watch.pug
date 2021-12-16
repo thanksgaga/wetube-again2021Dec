@@ -6,8 +6,8 @@ block content
         p=video.description
         small=video.createdAt
     div     
-        small Uploaded by 
-        small=owner.name
+        small Uploaded by  
+        a(href=`/users/${video.owner._id}`)=owner.name
         br
         small=loggedInUser._id
         ul 

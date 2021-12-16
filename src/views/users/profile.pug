@@ -1,5 +1,10 @@
 extends ../base
+include ../mixins/video
 
 block content 
-    span Hello
-    span=id
+    span #{user.name}'s Video list
+    
+    each video in user.videos
+        +video(video)
+    else
+        li Sorry nothing found.
