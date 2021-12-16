@@ -4,7 +4,6 @@ import fetch from "node-fetch";
 
 export const getJoin = (req, res) => res.render("join", { pageTitle: "Join" });
 export const postJoin = async (req, res) => {
-	console.log(req.body);
 	const { name, username, email, password, password2, location } = req.body;
 	const pageTitle = "Join";
 
@@ -156,13 +155,17 @@ export const getEdit = (req, res) =>
 export const postEdit = async (req, res) => {
 	const {
 		session: {
-			user: { _id },
+			user: { _id, avatarUrl },
 		},
 		body: { name, email, username, location },
+		file,
 	} = req;
+	console.log("file", file, "avatarUrl", avatarUrl);
+
 	const updatedUser = await User.findByIdAndUpdate(
 		_id,
 		{
+			avatarUrl: file ? file.path : avatarUrl,
 			name,
 			email,
 			username,
@@ -170,13 +173,7 @@ export const postEdit = async (req, res) => {
 		},
 		{ new: true },
 	);
-	req.session.user = {
-		...req.session.user,
-		name,
-		email,
-		username,
-		location,
-	};
+	req.session.user = updatedUser;
 	return res.redirect("/users/edit");
 };
 
