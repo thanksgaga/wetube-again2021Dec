@@ -1,38 +1,48 @@
 {
-  "name": "wetube",
-  "version": "1.0.0",
-  "description": "The best way to watch videos.",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nomadcoders/wetube-reloaded.git"
-  },
-  "scripts": {
-    "dev": "nodemon --exec babel-node src/init.js"
-  },
-  "author": "Nicolas Serrano <nico@nomadcoders.co>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nomadcoders/wetube-reloaded/issues"
-  },
-  "homepage": "https://github.com/nomadcoders/wetube-reloaded#readme",
-  "dependencies": {
-    "@ffmpeg/core": "^0.10.0",
-    "@ffmpeg/ffmpeg": "^0.10.1",
-    "bcrypt": "^5.0.1",
-    "connect-mongo": "^4.6.0",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "express-session": "^1.17.2",
-    "mongoose": "^6.1.0",
-    "morgan": "^1.10.0",
-    "multer": "^1.4.4",
-    "node-fetch": "^2.6.1",
-    "pug": "^3.0.2"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.13.10",
-    "@babel/node": "^7.13.10",
-    "@babel/preset-env": "^7.13.10",
-    "nodemon": "^2.0.7"
-  }
+	"name": "wetube",
+	"version": "1.0.0",
+	"description": "The best way to watch videos.",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nomadcoders/wetube-reloaded.git"
+	},
+	"scripts": {
+		"dev:server": "nodemon",
+		"dev:assets": "webpack"
+	},
+	"author": "Nicolas Serrano <nico@nomadcoders.co>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/nomadcoders/wetube-reloaded/issues"
+	},
+	"homepage": "https://github.com/nomadcoders/wetube-reloaded#readme",
+	"dependencies": {
+		"@ffmpeg/core": "^0.10.0",
+		"@ffmpeg/ffmpeg": "^0.10.1",
+		"bcrypt": "^5.0.1",
+		"connect-mongo": "^4.6.0",
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"express-session": "^1.17.2",
+		"mongoose": "^6.1.0",
+		"morgan": "^1.10.0",
+		"multer": "^1.4.4",
+		"node-fetch": "^2.6.1",
+		"pug": "^3.0.2"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.13.10",
+		"@babel/node": "^7.13.10",
+		"@babel/preset-env": "^7.13.10",
+		"babel-loader": "^8.2.3",
+		"css-loader": "^6.5.1",
+		"mini-css-extract-plugin": "^2.4.5",
+		"nodemon": "^2.0.7",
+		"saas": "^1.0.0",
+		"sass": "^1.45.0",
+		"sass-loader": "^12.4.0",
+		"style-loader": "^3.3.1",
+		"webpack": "^5.65.0",
+		"webpack-cli": "^4.9.1"
+	}
 }
